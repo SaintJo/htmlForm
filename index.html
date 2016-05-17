@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
+	<title>Form</title>
+</head>
+<body>
+    <div class="form">
+	        <form method="post" action="" id="localStor">
+		        <h1>Анкета</h1>
+			    <label><p>Прізвище</p></label><br>
+			    <input type="text" name="surname" id="surname" class="stor"/><br>
+                <label><p>Ім'я</p></label><br>
+			    <input type="text" name="name" id="name" class="stor"/><br>
+                <label><p>Стать :</p></label><br>
+			    <label>Чолоіча</label>
+			    <input type="radio" name="sex" id="male" checked="checked"/>
+                <label>Жіноча</label>
+			    <input type="radio" name="sex" id="female" />
+			    <br><br>
+			    <label><p>Адреса проживання</p></label><br>
+			    <input type="text" name="address" id="address class="stor"/><br>
+			    <label><p>Де ви навчалися?</p></label><br>
+			    <input type="text" name="study" id="study" class="stor"/><br>
+			    <label><p>Професійні навики</p></label><br>
+			    <textarea name="other" id="other" cols="20" rows="3" wrap="off">Текст</textarea><br>
+			    <label><p>Ваш e-mail</p></label><br>
+			    <input type="text" name="email" id="email" class="stor"placeholder=" e-mail"><br>
+			    <label><p>Номер телефону</p></label><br>
+		  	    <input type="text" name="phone" id="phone" class="stor"/><br>
+			    <label><p>Додаткова інформація</p></label><br>
+			    <textarea name="other" id="other" cols="20" rows="3" wrap="off">Текст</textarea><br>
+			    <input type="submit" class="button" value="Надіслати" />
+		    </form>
+	</div>
+	
+	    <script type="text/javsscript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.0/jquery.min.js">
+		    <script>
+			$(document).ready(function (){
+				function init(){
+				    }
+				    if (localStorage["name"]) {
+				   	$('#name').val(localStorage["name"]);
+				    }
+				    if (localStorage["surname"]) {
+				   	$('#surname').val(localStorage["surname"]);
+				    }
+				    if (localStorage["address"]) {
+				   	$('#address').val(localStorage["address"]);
+				    }
+				    if (localStorage["study"]) {
+				   	$('#study').val(localStorage["study"]);
+				    }
+				    if (localStorage["skills"]) {
+				   	$('#skills').val(localStorage["skills"]);
+				    }				 
+				    if (localStorage["phone"]) {
+				   	$('phone').val(localStorage["phone"])
+				    }
+				    if (localStorage["email"]) {
+				   	$('#email').val(localStorage["email"]);
+				    }  
+				}
+				init ();
+			});
+			$('.stor').keyup(function () {
+				localStorage[$(this).attr('name')] = $(this).val();					
+			});
+			$('#localStor').submit(function() {
+				localStorage.clear();
+			});
+		    </script>
+		</script>
+				  
+	
+</body>
+</html>
